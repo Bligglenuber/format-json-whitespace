@@ -10,11 +10,11 @@
 /**
  * This is JSON.stringify() but with finer control over how the whitespace is formatted
  *
- * @param {Object} input - The object to stringify
+ * @param {Object} inputJSON - The object to stringify
  * @param {formatJSONStringWhitespace#options} [options={}] - Configuration options
  * @returns {string} - The resulting JSON string
  */
-function formatJSONStringWhitespace( input, options = {} ) {
+function formatJSONStringWhitespace( inputJSON, options = {} ) {
 	const indentSymbol = options.indentSymbol || '\t';
 	const defaultKey = options.defaultKey || 'default';
 	const arrayKey = options.arrayKey || 'array';
@@ -33,7 +33,7 @@ function formatJSONStringWhitespace( input, options = {} ) {
 	let expectKey = false;
 	let keyStartIndex = 0;
 
-	input = JSON.stringify( input );
+	const input = JSON.stringify( inputJSON );
 
 	/**
 	 * Helper method that returns a string with the indentSymbol repeated the desired number of times
